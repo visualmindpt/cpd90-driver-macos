@@ -1,0 +1,8 @@
+#!/bin/bash
+# Chamado pelo ippeveprinter para cada trabalho do iPhone: $1 é o ficheiro
+# recebido (URF). Imprime-o na fila CP-D90 com a cpd90-print e devolve o
+# estado nas mensagens INFO:/ERROR: que o ippeveprinter mostra ao iPhone.
+out=$(/Library/Printers/CPD90Universal/bin/cpd90-print --airprint "$1" 2>&1); rc=$?
+while IFS= read -r l; do echo "INFO: $l" >&2; done <<< "$out"
+[ $rc = 0 ] || echo "ERROR: $(tail -1 <<< "$out")" >&2
+exit $rc

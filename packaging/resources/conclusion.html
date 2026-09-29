@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8">
+<style>body{font:13px -apple-system,sans-serif;line-height:1.45}pre{font-size:12px;background:#f2f2f2;padding:6px}</style></head>
+<body>
+<h2>Installation complete · Instalação concluída</h2>
+<p><b>English:</b> install Mitsubishi's ICC profiles with <code>sudo /Library/Printers/CPD90Universal/instalar-perfis.sh &lt;download&gt;</code>, add the printer in System Settings (driver "MITSUBISHI CP-D90D Universal"), and see the README for Lightroom, Quick Actions, cpd90-print and iPhone printing.</p>
+<hr>
+<p><b>Perfis ICC:</b> instale os perfis da Mitsubishi com <code>sudo /Library/Printers/CPD90Universal/instalar-perfis.sh &lt;download&gt;</code>.</p>
+<p><b>Mudar as filas existentes para o driver novo</b> (mantém as predefinições de cada fila).
+No Terminal, primeiro veja o que vai mudar:</p>
+<pre>/Library/Printers/CPD90Universal/migrar-filas.sh</pre>
+<p>e depois aplique:</p>
+<pre>sudo /Library/Printers/CPD90Universal/migrar-filas.sh --aplicar</pre>
+<p>Para voltar ao driver da Mitsubishi (enquanto estiver instalado):</p>
+<pre>sudo /Library/Printers/CPD90Universal/migrar-filas.sh --reverter --aplicar</pre>
+<p><b>Imprimir a partir do Finder:</b> selecione fotos, clique com o botão direito › Ações Rápidas › <i>Imprimir na CP-D90 (15×20)</i>, <i>(10×15)</i> ou as versões <i>mate</i>. Se ainda não aparecerem, termine a sessão e volte a entrar.</p>
+<p><b>iPhone/iPad (AirPrint):</b> requer <code>brew install cups</code>; depois:</p>
+<pre>/Library/Printers/CPD90Universal/airprint/airprint.sh ativar "CP-D90 (iPhone)"</pre>
+<p><b>Impressão direta</b> (tamanho exato, perfil ICC):</p>
+<pre>/Library/Printers/CPD90Universal/bin/cpd90-print --ajuda</pre>
+<p><b>Desinstalar:</b></p>
+<pre>sudo /Library/Printers/CPD90Universal/desinstalar.sh</pre>
+</body></html>

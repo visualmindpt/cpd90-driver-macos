@@ -1,0 +1,35 @@
+CP-D90DW Universal — macOS driver for the Mitsubishi CP-D90DW
+Copyright (C) 2026 Nelson Silva
+Licensed under the GNU General Public License v3.0 or later (see LICENSE).
+
+This program is not affiliated with, endorsed or supported by Mitsubishi
+Electric. "Mitsubishi", "CP-D90DW" and related names are trademarks of their
+respective owners and are used only to identify the compatible printer.
+
+No Mitsubishi software, ICC profiles, icons or other files are included in
+this repository or in its packages. The ICC profiles must be obtained by the
+user from Mitsubishi Electric and installed with instalar-perfis.sh.
+
+Third-party material and acknowledgements
+-----------------------------------------
+
+selphy_print / Gutenprint (GPL)
+  https://git.shaftnet.org/gitea/slp/selphy_print
+  https://gimp-print.sourceforge.io
+  Copyright Solomon Peachy and contributors.
+  This driver implements the Mitsubishi CP-D90 protocol as documented in
+  selphy_print's backend_mitsud90.c. The ribbon (media) type table in
+  src/mitsud90_common.c (brand/type codes and names) follows
+  mitsu_media_types() in selphy_print's backend_mitsu.c.
+
+CUPS / OpenPrinting (Apache License 2.0 with LLVM exception)
+  https://openprinting.github.io/cups/
+  The driver uses the CUPS APIs and raster format. AirPrint support runs the
+  ippeveprinter server from CUPS 2.4 (installed separately with Homebrew);
+  no CUPS code is copied into this repository.
+
+GNU General Public License v3.0 text: LICENSE (from the Free Software
+Foundation, https://www.gnu.org/licenses/gpl-3.0.txt).
+
+The printer icon (packaging/icon/CPD90.icns) is original artwork drawn by
+packaging/icon/make_icon.swift and is covered by this project's license.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>CP-D90DW Universal</title>
+    <welcome file="welcome.html" mime-type="text/html"/>
+    <license file="LICENSE.txt"/>
+    <conclusion file="conclusion.html" mime-type="text/html"/>
+    <options customize="never" require-scripts="false" hostArchitectures="arm64,x86_64"/>
+    <domains enable_localSystem="true"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="11.0"/>
+        </allowed-os-versions>
+    </volume-check>
+    <choices-outline>
+        <line choice="default">
+            <line choice="pt.nelsonsilva.cpd90universal"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="pt.nelsonsilva.cpd90universal" visible="false">
+        <pkg-ref id="pt.nelsonsilva.cpd90universal"/>
+    </choice>
+    <pkg-ref id="pt.nelsonsilva.cpd90universal" version="@VERSION@" onConclusion="none">CPD90Universal-component.pkg</pkg-ref>
+</installer-gui-script>
