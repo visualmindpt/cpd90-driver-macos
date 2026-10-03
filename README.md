@@ -33,6 +33,13 @@ Not tested on paper: 5" media (9×13, 13×18, 13×13), 6×9" media (15×21,
 
 - CUPS driver (PPD + raster filter) with the same options and paper-size names
   as the official driver, so existing presets keep working.
+- **All 17 formats** of the printer: 9×13, 10×15, 13×18, 15×20, 15×21, 15×23,
+  10×15 ×2, 2×6" strips (two layouts), 5×15, 15×15, 13×13, and the
+  white-border variants; glossy and matte; Auto, Fine and Ultra Fine modes;
+  sharpness; gamma, contrast and brightness per channel.
+- **Two-way communication** with the printer: status is checked before
+  each page and at the end of the job, and printer errors (ribbon end, ribbon/paper mismatch,
+  paper jam, printing unit open…) are shown in the macOS print queue.
 - **Ribbon status** in System Settings: ribbon name and remaining prints, plus
   "almost empty" and "empty" warnings. Sizes that don't fit the loaded ribbon
   are rejected **before** anything is printed.
@@ -192,6 +199,13 @@ mensagens estão em português.
 
 - Driver CUPS (PPD + filtro raster) com as mesmas opções e nomes de tamanhos do
   driver oficial, para os presets existentes continuarem a funcionar.
+- **Os 17 formatos** da impressora: 9×13, 10×15, 13×18, 15×20, 15×21, 15×23,
+  10×15 ×2, tiras 2×6" (duas disposições), 5×15, 15×15, 13×13 e as versões
+  com margem branca; brilhante e mate; modos Auto, Fine e Ultra Fine;
+  nitidez; gama, contraste e brilho por canal.
+- **Comunicação nos dois sentidos** com a impressora: o estado é verificado
+  antes de cada página e no fim da tarefa, e os erros da impressora (fim da fita, fita e
+  papel que não correspondem, papel encravado, unidade de impressão aberta…) aparecem na fila de impressão do macOS.
 - **Estado da fita** nas Definições do Sistema: nome da fita e impressões
   restantes, com avisos de fita a acabar e esgotada. Os formatos que não cabem
   na fita instalada são recusados **antes** de imprimir.
