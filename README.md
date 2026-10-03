@@ -50,12 +50,17 @@ Not tested on paper: 5" media (9×13, 13×18, 13×13), 6×9" media (15×21,
 
 1. Download `CPD90Universal-<version>-public.pkg` and its `.sha256` from
    [Releases](https://github.com/visualmindpt/cpd90-driver-macos/releases).
-   The package is not signed with an Apple Developer ID, so install it from
-   Terminal:
-   ```bash
-   shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
-   sudo installer -pkg CPD90Universal-*-public.pkg -target /
-   ```
+   The package is not signed with an Apple Developer ID, so macOS warns
+   before opening it. Either:
+   - **Double-click:** open the package; macOS says it could not verify it.
+     Click *Done*, go to **System Settings › Privacy & Security**, scroll to
+     *Security* and click **Open Anyway**, then confirm with your password.
+     (On macOS 14 and earlier, right-click the package and choose *Open*.)
+   - **Terminal** (no warning):
+     ```bash
+     shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
+     sudo installer -pkg CPD90Universal-*-public.pkg -target /
+     ```
 2. Add the printer in **System Settings › Printers & Scanners** and choose the
    driver **MITSUBISHI CP-D90D Universal**, or from Terminal:
    ```bash
@@ -204,12 +209,18 @@ mensagens estão em português.
 
 1. Descarregue o `CPD90Universal-<versão>-public.pkg` e o `.sha256` das
    [Releases](https://github.com/visualmindpt/cpd90-driver-macos/releases).
-   O pacote não tem assinatura de programador da Apple, por isso instale-o
-   pelo Terminal:
-   ```bash
-   shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
-   sudo installer -pkg CPD90Universal-*-public.pkg -target /
-   ```
+   O pacote não tem assinatura de programador da Apple, por isso o macOS
+   avisa antes de o abrir. Há duas formas:
+   - **Duplo clique:** abra o pacote; o macOS diz que não o conseguiu
+     verificar. Clique em *OK*, vá a **Definições do Sistema › Privacidade e
+     segurança**, desça até *Segurança* e clique em **Abrir mesmo assim**;
+     confirme com a sua palavra-passe. (No macOS 14 e anteriores, clique com
+     o botão direito no pacote e escolha *Abrir*.)
+   - **Terminal** (sem aviso):
+     ```bash
+     shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
+     sudo installer -pkg CPD90Universal-*-public.pkg -target /
+     ```
 2. Adicione a impressora em **Definições do Sistema › Impressoras e scanners**
    com o driver **MITSUBISHI CP-D90D Universal**, ou no Terminal:
    ```bash
