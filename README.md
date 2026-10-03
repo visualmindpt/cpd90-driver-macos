@@ -68,7 +68,11 @@ Not tested on paper: 5" media (9×13, 13×18, 13×13), 6×9" media (15×21,
      shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
      sudo installer -pkg CPD90Universal-*-public.pkg -target /
      ```
-2. Add the printer in **System Settings › Printers & Scanners** and choose the
+2. If the CP-D90DW is connected by USB and switched on during installation,
+   the installer creates the queue **CP-D90** (Ultra Fine, 15×20, printer
+   colour conversion off) and, when Homebrew's `cups` is present, turns on
+   the iPhone printer. Existing queues are never changed. Otherwise, add the
+   printer in **System Settings › Printers & Scanners** and choose the
    driver **MITSUBISHI CP-D90D Universal**, or from Terminal:
    ```bash
    sudo lpinfo -v | grep -i mitsubishi    # exact USB address of the printer
@@ -235,8 +239,12 @@ mensagens estão em português.
      shasum -a 256 -c CPD90Universal-*-public.pkg.sha256
      sudo installer -pkg CPD90Universal-*-public.pkg -target /
      ```
-2. Adicione a impressora em **Definições do Sistema › Impressoras e scanners**
-   com o driver **MITSUBISHI CP-D90D Universal**, ou no Terminal:
+2. Se a CP-D90DW estiver ligada por USB e acesa durante a instalação, o
+   instalador cria a fila **CP-D90** (Ultra Fine, 15×20, conversão de cor da
+   impressora desligada) e, se o `cups` do Homebrew existir, ativa a
+   impressora do iPhone. As filas existentes nunca são alteradas. Caso
+   contrário, adicione a impressora em **Definições do Sistema › Impressoras
+   e scanners** com o driver **MITSUBISHI CP-D90D Universal**, ou no Terminal:
    ```bash
    sudo lpinfo -v | grep -i mitsubishi    # endereço USB exato da impressora
    sudo lpadmin -p CPD90 -D "CP-D90" -E -v "usb://MITSUBISHI/CPD90D?location=…" \

@@ -13,6 +13,9 @@ fail=0; ok() { echo "ok  $*"; }; bad() { echo "ERRO $*"; fail=1; }
 pkgutil --check-signature "$PKG" >/dev/null 2>&1 && ok "pacote assinado" || echo "--  pacote sem assinatura de programador (esperado; ver README)"
 pkgutil --expand "$PKG" "$X" || { bad "pkgutil --expand"; exit 1; }
 grep -q 'hostArchitectures="arm64,x86_64"' "$X/Distribution" && ok "Distribution: arm64 + x86_64, macOS >= 11"
+grep -q 'postinstall file="./postinstall"' "$X/CPD90Universal-component.pkg/PackageInfo" \
+    && [ -x "$X/CPD90Universal-component.pkg/Scripts/postinstall" ] && bash -n "$X/CPD90Universal-component.pkg/Scripts/postinstall" \
+    && ok "postinstall incluído (fila automática, Ações Rápidas, AirPrint)" || bad "postinstall"
 grep -q 'overwrite-permissions="false"' "$X/CPD90Universal-component.pkg/PackageInfo" && ok "PackageInfo: não altera permissões de pastas existentes" || bad "overwrite-permissions"
 # O Bom e o Payload têm de listar exatamente os mesmos caminhos.
 diff <(lsbom -s "$X/CPD90Universal-component.pkg/Bom" | sort) <(gunzip -dc "$X/CPD90Universal-component.pkg/Payload" | cpio -it --quiet 2>/dev/null | sort) >/dev/null && ok "Bom e Payload coincidem" || bad "Bom e Payload diferem"

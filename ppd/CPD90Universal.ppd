@@ -4,7 +4,7 @@
 *% Não é um produto da Mitsubishi Electric. GPL-3.0-or-later.
 *%
 *FormatVersion: "4.3"
-*FileVersion: "1.4.0"
+*FileVersion: "1.4.1"
 *LanguageVersion: English
 *LanguageEncoding: ISOLatin1
 *PCFileName: "CPD90UNI.PPD"
@@ -12,7 +12,7 @@
 *Product: "(MITSUBISHI CPD90D)"
 *ModelName: "MITSUBISHI CP-D90D"
 *ShortNickName: "MITSUBISHI CP-D90D Universal"
-*NickName: "MITSUBISHI CP-D90D Universal 1.4.0"
+*NickName: "MITSUBISHI CP-D90D Universal 1.4.1"
 *1284DeviceID: "MFG:MITSUBISHI;MDL:CPD90D;"
 *PSVersion: "(3010.000) 0"
 *LanguageLevel: "3"

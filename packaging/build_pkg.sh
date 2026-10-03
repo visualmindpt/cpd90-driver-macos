@@ -61,7 +61,9 @@ find "$ROOT" \( -name '.DS_Store' -o -name '._*' \) -delete
 # Componente construído à mão (ver write_payload.py): Payload cpio sem
 # atributos estendidos, Bom root:wheel e PackageInfo. overwrite-permissions
 # fica a false para não alterar /Library/Printers (root:admin 0775).
-COMP=build/pkg/component; mkdir -p "$COMP"
+COMP=build/pkg/component; mkdir -p "$COMP/Scripts"
+# postinstall: Ações Rápidas, fila automática e AirPrint (packaging/scripts).
+install -m 0755 packaging/scripts/postinstall "$COMP/Scripts/postinstall"
 read -r nfiles kbytes < <(python3 packaging/write_payload.py "$ROOT" "$COMP/Payload")
 # Bom com dono root:wheel (0/0): gera-se a listagem e troca-se o dono.
 mkbom "$ROOT" build/pkg/tmp.bom
@@ -72,6 +74,7 @@ cat > "$COMP/PackageInfo" <<XML
 <?xml version="1.0" encoding="utf-8"?>
 <pkg-info format-version="2" identifier="$ID" version="$VERSION" install-location="/" auth="root" overwrite-permissions="false" relocatable="false" postinstall-action="none">
     <payload numberOfFiles="$nfiles" installKBytes="$kbytes"/>
+    <scripts><postinstall file="./postinstall"/></scripts>
 </pkg-info>
 XML
 pkgutil --flatten "$COMP" build/pkg/CPD90Universal-component.pkg

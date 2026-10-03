@@ -13,7 +13,7 @@
 
 /* Única definição da versão; lida por tools/gen_ppd.py, pelo Makefile (cpd90-print),
    build_pkg.sh e verify_pkg.sh. */
-#define DRIVER_VERSION "1.4.0"
+#define DRIVER_VERSION "1.4.1"
 
 /* Resposta da impressora a um pedido ESC G D 0. */
 typedef struct {

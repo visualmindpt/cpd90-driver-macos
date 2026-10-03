@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# postinstall — deixa a CP-D90 pronta a usar logo após a instalação:
+#   1. atualiza as Ações Rápidas do Finder da sessão aberta;
+#   2. cria a fila "CP-D90" se nenhuma fila usar este driver e houver uma
+#      CP-D90 ligada por USB (Ultra Fine, conversão da impressora desligada,
+#      15x20);
+#   3. ativa a impressora AirPrint (iPhone) se o CUPS 2.4 do Homebrew existir
+#      e ainda não estiver ativa.
+# Nunca altera filas existentes. CPD90_POSTINSTALL_SIMULAR=1 só mostra o que faria.
+PPD_MODEL=Library/Printers/PPDs/Contents/Resources/CPD90Universal.ppd.gz
+DIR=/Library/Printers/CPD90Universal
+SIM=${CPD90_POSTINSTALL_SIMULAR:-}
+run() { if [ -n "$SIM" ]; then echo "[simular] $*"; else "$@"; fi; }
+
+user=$(/usr/bin/stat -f %Su /dev/console 2>/dev/null)
+uid=$(/usr/bin/id -u "$user" 2>/dev/null || true)
+
+# 1. Ações Rápidas
+if [ -n "$uid" ] && [ "$user" != root ]; then
+    run /bin/launchctl asuser "$uid" /usr/bin/sudo -u "$user" /System/Library/CoreServices/pbs -update
+fi
+
+# 2. Fila
+has_queue=0
+for q in $(/usr/bin/lpstat -e 2>/dev/null); do
+    grep -qs rastertomitsud90 "/etc/cups/ppd/$q.ppd" && has_queue=1
+done
+if [ $has_queue = 0 ]; then
+    uri=$(/usr/sbin/lpinfo -v 2>/dev/null | awk '/usb:\/\/MITSUBISHI\/CPD90D/ {print $2; exit}')
+    if [ -n "$uri" ]; then
+        run /usr/sbin/lpadmin -p CPD90 -D "CP-D90" -L "Driver CP-D90DW Universal" -E -v "$uri" \
+            -m "$PPD_MODEL" -o PageSize-default=ME_15x20 \
+            -o MEPrintMode-default=UltraFine -o MEColorConversion-default=Disabled
+        echo "Fila CP-D90 criada ($uri)"
+    else
+        echo "Nenhuma CP-D90 ligada por USB: adicione a impressora em Definições do Sistema."
+    fi
+fi
+
+# 3. AirPrint para o iPhone
+if [ -n "$uid" ] && [ "$user" != root ]; then
+    if [ -x /opt/homebrew/opt/cups/bin/ippeveprinter ] || [ -x /usr/local/opt/cups/bin/ippeveprinter ]; then
+        if ! /bin/launchctl print "gui/$uid/pt.nelsonsilva.cpd90-airprint" >/dev/null 2>&1; then
+            run /bin/launchctl asuser "$uid" /usr/bin/sudo -u "$user" "$DIR/airprint/airprint.sh" ativar "CP-D90 (iPhone)"
+        else
+            # já ativa: reiniciar para usar os ficheiros acabados de instalar
+            run /bin/launchctl kickstart -k "gui/$uid/pt.nelsonsilva.cpd90-airprint"
+        fi
+    fi
+fi
+exit 0
