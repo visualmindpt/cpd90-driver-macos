@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitsubishi CP-D90DW driver for Mac: Apple Silicon and macOS 27 (free, open source)</title>
+<meta name="description" content="Free, open-source macOS driver for the Mitsubishi CP-D90DW photo printer. Runs natively on Apple Silicon and Intel Macs, no Rosetta 2. Ribbon levels, all 17 print sizes, Lightroom and iPhone printing.">
+<link rel="canonical" href="https://visualmindpt.github.io/cpd90-driver-macos/">
+<link rel="icon" type="image/png" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mitsubishi CP-D90DW driver for Mac: Apple Silicon and macOS 27">
+<meta property="og:description" content="Free, open-source macOS driver for the Mitsubishi CP-D90DW. Native on Apple Silicon and Intel, no Rosetta 2.">
+<meta property="og:url" content="https://visualmindpt.github.io/cpd90-driver-macos/">
+<meta property="og:image" content="https://visualmindpt.github.io/cpd90-driver-macos/icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CP-D90DW Universal",
+  "description": "Open-source macOS driver for the Mitsubishi CP-D90DW dye-sublimation photo printer, native on Apple Silicon and Intel Macs.",
+  "applicationCategory": "DriverApplication",
+  "operatingSystem": "macOS 11 or later",
+  "softwareVersion": "1.4.1",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "url": "https://visualmindpt.github.io/cpd90-driver-macos/",
+  "downloadUrl": "https://github.com/visualmindpt/cpd90-driver-macos/releases/latest",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": { "@type": "Person", "name": "Nelson Silva" }
+}
+</script>
+<style>
+:root {
+  --bg: #fbfaf7; --panel: #ffffff; --ink: #1c1b19; --muted: #625f58;
+  --line: #e4e0d6; --accent: #b3261e; --accent-ink: #ffffff; --code: #f1eee6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151412; --panel: #1e1c19; --ink: #f0ede6; --muted: #a8a399;
+    --line: #34312b; --accent: #ef6a5e; --accent-ink: #1a0b09; --code: #26231f;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
+header { padding: 40px 0 8px; display: flex; gap: 20px; align-items: center; }
+header img { width: 88px; height: 88px; flex: none; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: 1.3rem; margin: 44px 0 10px; letter-spacing: -0.005em; }
+p { margin: 0 0 14px; }
+.lead { font-size: 1.1rem; color: var(--muted); margin-top: 16px; }
+.langs { font-size: 0.9rem; color: var(--muted); margin: 18px 0 0; }
+a { color: var(--accent); }
+.cta {
+  display: inline-block; margin: 14px 12px 6px 0; padding: 12px 22px; border-radius: 8px;
+  background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600;
+}
+.cta.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.note { font-size: 0.92rem; color: var(--muted); }
+blockquote {
+  margin: 20px 0; padding: 14px 18px; background: var(--panel);
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px;
+}
+blockquote p:last-child { margin: 0; }
+ul, ol { padding-left: 22px; margin: 0 0 14px; }
+li { margin-bottom: 7px; }
+code { background: var(--code); padding: 2px 5px; border-radius: 4px; font-size: 0.88em; }
+pre { background: var(--code); padding: 12px 14px; border-radius: 6px; overflow-x: auto; margin: 0 0 14px; }
+pre code { background: none; padding: 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0 0; }
+footer { font-size: 0.88rem; color: var(--muted); margin-top: 48px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <img src="icon.png" alt="" width="88" height="88">
+  <h1>Mitsubishi CP-D90DW driver for Mac, native on Apple Silicon</h1>
+</header>
+<p class="langs"><a href="#english">English</a> · <a href="#portugues">Português</a></p>
+
+<section id="english">
+<p class="lead">A free, open-source macOS driver for the Mitsubishi CP-D90DW dye-sublimation photo printer. It runs natively on Apple Silicon and Intel Macs and does not need Rosetta 2.</p>
+
+<a class="cta" href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Download the installer (.pkg)</a>
+<a class="cta alt" href="https://github.com/visualmindpt/cpd90-driver-macos">Source on GitHub</a>
+<p class="note">Version 1.4.1 · macOS 11 or later · GPL-3.0</p>
+
+<blockquote>
+<p><strong>“The printer software is not compatible with this device”?</strong></p>
+<p>Mitsubishi's own Mac driver for the CP-D90DW (v3.00, 2019) is Intel-only and runs through Rosetta 2. Apple has announced that macOS 27 is the last release with full Rosetta 2 support, so that driver stops working. This driver replaces it.</p>
+</blockquote>
+
+<h2>What it does</h2>
+<ul>
+  <li><strong>All 17 print sizes</strong> of the CP-D90DW: 9×13, 10×15 (4×6"), 13×18 (5×7"), 15×20 (6×8"), 15×21, 15×23 (6×9"), 10×15 ×2, 2×6" strips, 5×15, 15×15, 13×13 and the white-border variants.</li>
+  <li><strong>Glossy and matte</strong>, Auto, Fine and Ultra Fine modes, with the same options and paper-size names as the official driver, so existing presets keep working.</li>
+  <li><strong>Ribbon levels</strong> in System Settings: ribbon name and remaining prints, with warnings when it is almost empty.</li>
+  <li><strong>Printer errors</strong> (ribbon end, ribbon and paper mismatch, paper jam, printing unit open) shown in the macOS print queue.</li>
+  <li>Sizes that do not fit the loaded ribbon are <strong>rejected before anything is printed</strong>.</li>
+  <li><strong>Lightroom Classic and Photoshop</strong> with colour management by the application.</li>
+  <li><strong>Finder Quick Actions</strong>: right-click photos and print at 15×20 or 10×15, glossy or matte.</li>
+  <li><strong>iPhone and iPad printing</strong>: the Mac publishes an AirPrint printer for the CP-D90DW.</li>
+  <li><strong><code>cpd90-print</code></strong>, a command-line tool that prints at the exact pixel size of each format with ICC colour conversion and output sharpening.</li>
+</ul>
+
+<h2>Install</h2>
+<ol>
+  <li>Connect the CP-D90DW by USB and switch it on.</li>
+  <li><a href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Download the installer</a> and open it.</li>
+  <li>The package is not signed with an Apple Developer ID, so macOS warns first. Click <em>Done</em>, open <strong>System Settings › Privacy &amp; Security</strong>, scroll to <em>Security</em> and click <strong>Open Anyway</strong>.</li>
+  <li>The installer creates the print queue <strong>CP-D90</strong>. Existing queues are never changed.</li>
+</ol>
+<p>Prefer Terminal? This installs with no warning:</p>
+<pre><code>sudo installer -pkg CPD90Universal-1.4.1-public.pkg -target /</code></pre>
+
+<h2>ICC profiles</h2>
+<p>Mitsubishi's ICC profiles are not included. Search for <strong>“Mitsubishi Electric CP-D90DW ICC profile”</strong> on Mitsubishi Electric's official website; the files you need are <code>CPD90_UF.icc</code> and <code>CPD90_ST.icc</code>. The <a href="https://github.com/visualmindpt/cpd90-driver-macos#icc-profiles-from-mitsubishi">README</a> explains how to install them.</p>
+<p>Recommended colour workflow, validated on real prints: let the application manage colours with the <strong>CPD90_UF</strong> profile, print in <strong>Ultra Fine</strong> mode, and turn the printer's colour conversion off.</p>
+
+<h2>Tested</h2>
+<p>Tested on a real CP-D90DW with the CK-D868 (6×8") media kit on macOS 26, Apple Silicon: 15×20, 10×15, 10×15 ×2, 2×6" strips, multi-photo jobs, glossy and matte, ribbon levels and iPhone printing. Not yet tested on paper: 5" media, 6×9" media and other printer variants such as the CP-D90DW-P.</p>
+
+<h2>Questions</h2>
+<p><strong>Does it work on Intel Macs?</strong> Yes. The binaries are Universal (arm64 and x86_64).</p>
+<p><strong>Does it remove the Mitsubishi driver?</strong> No. Both can be installed at the same time, and your existing queues are left alone.</p>
+<p><strong>How do I uninstall it?</strong> <code>sudo /Library/Printers/CPD90Universal/desinstalar.sh</code></p>
+<p><strong>Something does not work.</strong> <a href="https://github.com/visualmindpt/cpd90-driver-macos/issues">Open an issue</a> with your macOS version and media kit.</p>
+</section>
+
+<hr>
+
+<section id="portugues" lang="pt-PT">
+<h2>Driver da Mitsubishi CP-D90DW para Mac, nativo em Apple Silicon</h2>
+<p class="lead">Um driver gratuito e open source para macOS para a impressora fotográfica de sublimação Mitsubishi CP-D90DW. Corre nativamente em Macs Apple Silicon e Intel e não precisa do Rosetta 2.</p>
+
+<a class="cta" href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Descarregar o instalador (.pkg)</a>
+<a class="cta alt" href="https://github.com/visualmindpt/cpd90-driver-macos">Código no GitHub</a>
+<p class="note">Versão 1.4.1 · macOS 11 ou superior · GPL-3.0</p>
+
+<blockquote>
+<p><strong>“O software da impressora não é compatível com este dispositivo”?</strong></p>
+<p>O driver da Mitsubishi para Mac da CP-D90DW (v3.00, 2019) é só para Intel e corre através do Rosetta 2. A Apple anunciou que o macOS 27 é a última versão com suporte completo ao Rosetta 2, por isso esse driver deixa de funcionar. Este driver substitui-o.</p>
+</blockquote>
+
+<h2>O que faz</h2>
+<ul>
+  <li><strong>Os 17 formatos</strong> da CP-D90DW: 9×13, 10×15, 13×18, 15×20, 15×21, 15×23, 10×15 ×2, tiras 2×6", 5×15, 15×15, 13×13 e as versões com margem branca.</li>
+  <li><strong>Brilhante e mate</strong>, modos Auto, Fine e Ultra Fine, com as mesmas opções e nomes de tamanhos do driver oficial, para os presets existentes continuarem a funcionar.</li>
+  <li><strong>Níveis da fita</strong> nas Definições do Sistema: nome da fita e impressões restantes, com aviso quando está a acabar.</li>
+  <li><strong>Erros da impressora</strong> (fim da fita, fita e papel que não correspondem, papel encravado, unidade de impressão aberta) na fila de impressão do macOS.</li>
+  <li>Os formatos que não cabem na fita instalada são <strong>recusados antes de imprimir</strong>.</li>
+  <li><strong>Lightroom Classic e Photoshop</strong> com gestão de cor pela aplicação.</li>
+  <li><strong>Ações Rápidas do Finder</strong>: botão direito nas fotos para imprimir em 15×20 ou 10×15, brilhante ou mate.</li>
+  <li><strong>Impressão do iPhone e do iPad</strong>: o Mac publica uma impressora AirPrint para a CP-D90DW.</li>
+  <li><strong><code>cpd90-print</code></strong>, uma ferramenta de linha de comandos que imprime com o tamanho exato de cada formato, com conversão ICC e nitidez de saída.</li>
+</ul>
+
+<h2>Instalar</h2>
+<ol>
+  <li>Ligue a CP-D90DW por USB e acenda-a.</li>
+  <li><a href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Descarregue o instalador</a> e abra-o.</li>
+  <li>O pacote não tem assinatura de programador da Apple, por isso o macOS avisa primeiro. Clique em <em>OK</em>, abra <strong>Definições do Sistema › Privacidade e segurança</strong>, desça até <em>Segurança</em> e clique em <strong>Abrir mesmo assim</strong>.</li>
+  <li>O instalador cria a fila de impressão <strong>CP-D90</strong>. As filas existentes nunca são alteradas.</li>
+</ol>
+<p>Prefere o Terminal? Assim instala sem aviso:</p>
+<pre><code>sudo installer -pkg CPD90Universal-1.4.1-public.pkg -target /</code></pre>
+
+<h2>Perfis ICC</h2>
+<p>Os perfis ICC da Mitsubishi não estão incluídos. Pesquise por <strong>“Mitsubishi Electric CP-D90DW ICC profile”</strong> no site oficial da Mitsubishi Electric; os ficheiros necessários são o <code>CPD90_UF.icc</code> e o <code>CPD90_ST.icc</code>. O <a href="https://github.com/visualmindpt/cpd90-driver-macos#perfis-icc-da-mitsubishi">README</a> explica como os instalar.</p>
+<p>Fluxo de cor recomendado, validado em impressões reais: a aplicação gere as cores com o perfil <strong>CPD90_UF</strong>, modo <strong>Ultra Fine</strong>, e a conversão de cor da impressora desligada.</p>
+
+<h2>Testado</h2>
+<p>Testado numa CP-D90DW real com o kit CK-D868 (15×20) em macOS 26, Apple Silicon: 15×20, 10×15, 10×15 ×2, tiras 2×6", tarefas com várias fotos, brilhante e mate, níveis da fita e impressão do iPhone. Ainda não testado em papel: papel de 5", papel de 6×9" e outras variantes da impressora, como a CP-D90DW-P.</p>
+
+<h2>Perguntas</h2>
+<p><strong>Funciona em Macs Intel?</strong> Sim. Os binários são Universal (arm64 e x86_64).</p>
+<p><strong>Remove o driver da Mitsubishi?</strong> Não. Os dois podem estar instalados ao mesmo tempo, e as filas existentes ficam como estão.</p>
+<p><strong>Como desinstalo?</strong> <code>sudo /Library/Printers/CPD90Universal/desinstalar.sh</code></p>
+<p><strong>Algo não funciona.</strong> <a href="https://github.com/visualmindpt/cpd90-driver-macos/issues">Abra um issue</a> com a versão do macOS e o kit de papel.</p>
+</section>
+
+<footer>
+<p>Not affiliated with Mitsubishi Electric. “Mitsubishi” and “CP-D90DW” are trademarks of their owners, used here only to identify the printer this driver is compatible with. No Mitsubishi software or data is included.</p>
+<p>Based on the printer protocol documented publicly by the selphy_print / Gutenprint project. Developed by Nelson Silva (<a href="https://github.com/visualmindpt">VisualMind</a>). GPL-3.0, provided as is, without warranty.</p>
+</footer>
+
+</main>
+</body>
+</html>

@@ -15,6 +15,11 @@ The official Mitsubishi driver for macOS (v3.00, 2019) ships Intel-only
 is the last release with full Rosetta 2 support, so the official driver will
 stop working. This project keeps the printer usable.
 
+If macOS tells you **"The printer software is not compatible with this
+device"** for your CP-D90DW, or you are moving to **macOS 27** or to a Mac
+where Rosetta 2 is not available, this driver replaces the official one.
+Website: <https://visualmindpt.github.io/cpd90-driver-macos/>
+
 > **Not affiliated with Mitsubishi Electric.** "Mitsubishi" and "CP-D90DW" are
 > trademarks of their owners and are used here only to identify the printer
 > this driver is compatible with. No Mitsubishi software or data is included.
@@ -182,6 +187,11 @@ O driver oficial da Mitsubishi para macOS (v3.00, 2019) só tem filtros Intel
 (x86_64), que correm através do Rosetta 2. A Apple anunciou que o macOS 27 é a
 última versão com suporte completo ao Rosetta 2, por isso o driver oficial vai
 deixar de funcionar. Este projeto mantém a impressora utilizável.
+
+Se o macOS lhe disser que **"o software da impressora não é compatível com
+este dispositivo"** na sua CP-D90DW, ou se vai passar para o **macOS 27** ou
+para um Mac sem o Rosetta 2, este driver substitui o oficial.
+Site: <https://visualmindpt.github.io/cpd90-driver-macos/>
 
 > **Sem qualquer ligação à Mitsubishi Electric.** "Mitsubishi" e "CP-D90DW" são
 > marcas dos respetivos titulares e são usadas aqui apenas para identificar a
