@@ -22,7 +22,7 @@
   "description": "Open-source macOS driver for the Mitsubishi CP-D90DW dye-sublimation photo printer, native on Apple Silicon and Intel Macs.",
   "applicationCategory": "DriverApplication",
   "operatingSystem": "macOS 11 or later",
-  "softwareVersion": "1.4.1",
+  "softwareVersion": "1.4.2",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
   "url": "https://visualmindpt.github.io/cpd90-driver-macos/",
   "downloadUrl": "https://github.com/visualmindpt/cpd90-driver-macos/releases/latest",
@@ -90,7 +90,7 @@ footer { font-size: 0.88rem; color: var(--muted); margin-top: 48px; }
 
 <a class="cta" href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Download the installer (.pkg)</a>
 <a class="cta alt" href="https://github.com/visualmindpt/cpd90-driver-macos">Source on GitHub</a>
-<p class="note">Version 1.4.1 · macOS 11 or later · GPL-3.0</p>
+<p class="note">Version 1.4.2 · macOS 11 or later · GPL-3.0</p>
 
 <blockquote>
 <p><strong>“The printer software is not compatible with this device”?</strong></p>
@@ -115,10 +115,10 @@ footer { font-size: 0.88rem; color: var(--muted); margin-top: 48px; }
   <li>Connect the CP-D90DW by USB and switch it on.</li>
   <li><a href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Download the installer</a> and open it.</li>
   <li>The package is not signed with an Apple Developer ID, so macOS warns first. Click <em>Done</em>, open <strong>System Settings › Privacy &amp; Security</strong>, scroll to <em>Security</em> and click <strong>Open Anyway</strong>.</li>
-  <li>The installer creates the print queue <strong>CP-D90</strong>. Existing queues are never changed.</li>
+  <li>The installer creates the print queue <strong>CP-D90</strong>. It finds the printer on any USB port.</li>
 </ol>
 <p>Prefer Terminal? This installs with no warning:</p>
-<pre><code>sudo installer -pkg CPD90Universal-1.4.1-public.pkg -target /</code></pre>
+<pre><code>sudo installer -pkg CPD90Universal-1.4.2-public.pkg -target /</code></pre>
 
 <h2>ICC profiles</h2>
 <p>Mitsubishi's ICC profiles are not included. Search for <strong>“Mitsubishi Electric CP-D90DW ICC profile”</strong> on Mitsubishi Electric's official website; the files you need are <code>CPD90_UF.icc</code> and <code>CPD90_ST.icc</code>. The <a href="https://github.com/visualmindpt/cpd90-driver-macos#icc-profiles-from-mitsubishi">README</a> explains how to install them.</p>
@@ -142,7 +142,7 @@ footer { font-size: 0.88rem; color: var(--muted); margin-top: 48px; }
 
 <a class="cta" href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Descarregar o instalador (.pkg)</a>
 <a class="cta alt" href="https://github.com/visualmindpt/cpd90-driver-macos">Código no GitHub</a>
-<p class="note">Versão 1.4.1 · macOS 11 ou superior · GPL-3.0</p>
+<p class="note">Versão 1.4.2 · macOS 11 ou superior · GPL-3.0</p>
 
 <blockquote>
 <p><strong>“O software da impressora não é compatível com este dispositivo”?</strong></p>
@@ -167,10 +167,10 @@ footer { font-size: 0.88rem; color: var(--muted); margin-top: 48px; }
   <li>Ligue a CP-D90DW por USB e acenda-a.</li>
   <li><a href="https://github.com/visualmindpt/cpd90-driver-macos/releases/latest">Descarregue o instalador</a> e abra-o.</li>
   <li>O pacote não tem assinatura de programador da Apple, por isso o macOS avisa primeiro. Clique em <em>OK</em>, abra <strong>Definições do Sistema › Privacidade e segurança</strong>, desça até <em>Segurança</em> e clique em <strong>Abrir mesmo assim</strong>.</li>
-  <li>O instalador cria a fila de impressão <strong>CP-D90</strong>. As filas existentes nunca são alteradas.</li>
+  <li>O instalador cria a fila de impressão <strong>CP-D90</strong>. A fila encontra a impressora em qualquer porta USB.</li>
 </ol>
 <p>Prefere o Terminal? Assim instala sem aviso:</p>
-<pre><code>sudo installer -pkg CPD90Universal-1.4.1-public.pkg -target /</code></pre>
+<pre><code>sudo installer -pkg CPD90Universal-1.4.2-public.pkg -target /</code></pre>
 
 <h2>Perfis ICC</h2>
 <p>Os perfis ICC da Mitsubishi não estão incluídos. Pesquise por <strong>“Mitsubishi Electric CP-D90DW ICC profile”</strong> no site oficial da Mitsubishi Electric; os ficheiros necessários são o <code>CPD90_UF.icc</code> e o <code>CPD90_ST.icc</code>. O <a href="https://github.com/visualmindpt/cpd90-driver-macos#perfis-icc-da-mitsubishi">README</a> explica como os instalar.</p>

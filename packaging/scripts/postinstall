@@ -4,10 +4,11 @@
 #   1. atualiza as Ações Rápidas do Finder da sessão aberta;
 #   2. cria a fila "CP-D90" se nenhuma fila usar este driver e houver uma
 #      CP-D90 ligada por USB (Ultra Fine, conversão da impressora desligada,
-#      15x20);
+#      15x20); as filas deste driver ficam sem ?location= no endereço USB,
+#      para encontrarem a impressora em qualquer porta;
 #   3. ativa a impressora AirPrint (iPhone) se o CUPS 2.4 do Homebrew existir
 #      e ainda não estiver ativa.
-# Nunca altera filas existentes. CPD90_POSTINSTALL_SIMULAR=1 só mostra o que faria.
+# Das filas existentes só muda o endereço USB. CPD90_POSTINSTALL_SIMULAR=1 só mostra o que faria.
 PPD_MODEL=Library/Printers/PPDs/Contents/Resources/CPD90Universal.ppd.gz
 DIR=/Library/Printers/CPD90Universal
 SIM=${CPD90_POSTINSTALL_SIMULAR:-}
@@ -22,12 +23,25 @@ if [ -n "$uid" ] && [ "$user" != root ]; then
 fi
 
 # 2. Fila
+# Com uma só CP-D90 ligada, ?location= só serve para prender a fila a uma porta.
+n_usb=$(/usr/sbin/lpinfo -v 2>/dev/null | grep -c 'usb://MITSUBISHI/CPD90D')
 has_queue=0
 for q in $(/usr/bin/lpstat -e 2>/dev/null); do
-    grep -qs rastertomitsud90 "/etc/cups/ppd/$q.ppd" && has_queue=1
+    grep -qs rastertomitsud90 "/etc/cups/ppd/$q.ppd" || continue
+    has_queue=1
+    old_uri=$(/usr/bin/lpstat -v "$q" 2>/dev/null | awk '{print $NF}')
+    case "$old_uri" in
+        usb://MITSUBISHI/CPD90D\?*)
+            if [ "$n_usb" -le 1 ]; then
+                run /usr/sbin/lpadmin -p "$q" -v "${old_uri%%\?*}"
+                echo "Fila $q: endereço USB sem porta fixa"
+            fi ;;
+    esac
 done
 if [ $has_queue = 0 ]; then
     uri=$(/usr/sbin/lpinfo -v 2>/dev/null | awk '/usb:\/\/MITSUBISHI\/CPD90D/ {print $2; exit}')
+    # sem ?location=: a fila encontra a impressora em qualquer porta USB
+    uri=${uri%%\?*}
     if [ -n "$uri" ]; then
         run /usr/sbin/lpadmin -p CPD90 -D "CP-D90" -L "Driver CP-D90DW Universal" -E -v "$uri" \
             -m "$PPD_MODEL" -o PageSize-default=ME_15x20 \
